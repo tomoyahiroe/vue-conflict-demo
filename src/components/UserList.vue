@@ -33,14 +33,14 @@ const fuseWithTags = new Fuse(data, fuseOptionsWithTags)
 // 検索結果の計算
 const searchResultsWithoutTags = computed(() => {
   if (!searchQuery.value.trim()) {
-    return data.slice(0, 10) // 検索クエリがない場合は最初の10件を表示
+    return data // 検索クエリがない場合は最初の10件を表示
   }
   return fuseWithoutTags.search(searchQuery.value).map(result => result.item)
 })
 
 const searchResultsWithTags = computed(() => {
   if (!searchQuery.value.trim()) {
-    return data.slice(0, 10) // 検索クエリがない場合は最初の10件を表示
+    return data // 検索クエリがない場合は最初の10件を表示
   }
   return fuseWithTags.search(searchQuery.value).map(result => result.item)
 })
